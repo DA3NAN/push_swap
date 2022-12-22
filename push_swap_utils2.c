@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push_swap_utils2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aait-mal <aait-mal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/21 20:30:08 by aait-mal          #+#    #+#             */
-/*   Updated: 2022/12/22 22:04:31 by aait-mal         ###   ########.fr       */
+/*   Created: 2022/12/22 18:35:18 by aait-mal          #+#    #+#             */
+/*   Updated: 2022/12/22 22:03:23 by aait-mal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"push_swap.h"
+#include "push_swap.h"
 
-int	main(int ac, char **av)
+void	display_stack(int *stack, int stack_size)
 {
-	int	*stack_a;
-	int	*stack_b;
-	int	stack_size;
+	int	i;
 
-	stack_size = check_valid_stack(ac, av, &stack_a);
-	stack_b = ft_calloc(stack_size, sizeof(int));
-	if (ac < 2 || !stack_size)
-		ft_printf("Please include a valid stack !");
-	else
+	i = 0;
+	while (i < stack_size)
 	{
-		sa(&stack_a, stack_size);
-		display_stack(stack_a, stack_size);
+		ft_printf("%d\n", stack[i]);
+		i++;
 	}
-	return (0);
 }

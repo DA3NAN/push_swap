@@ -6,7 +6,7 @@
 /*   By: aait-mal <aait-mal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 15:58:18 by aait-mal          #+#    #+#             */
-/*   Updated: 2022/12/22 17:00:30 by aait-mal         ###   ########.fr       */
+/*   Updated: 2022/12/22 22:02:31 by aait-mal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,45 +27,64 @@ static int	check_valid_number(char *p)
 	return (1);
 }
 
-int	check_valid_stack(int ac, char **av)
+int	count_numbers(int ac, char **av)
 {
-	int	i;
+	char	**splited_numbers;
+	int		i;
+	int		j;
+	int		count;
 
+	count = 0;
 	i = 1;
 	while (i < ac)
 	{
-		if (!check_valid_number(av[i]))
-			return (0);
+		splited_numbers = ft_split(av[i], ' ');
+		j = 0;
+		while (splited_numbers[j])
+		{
+			if (!check_valid_number(splited_numbers[j]))
+				return (0);
+			j++;
+		}
+		count = count + j;
 		i++;
 	}
-	return (1);
+	return (count);
 }
 
-void	fill_stack(int stack_size, char **av, int **stack)
+int	check_valid_stack(int ac, char **av, int **stack)
 {
-	int	i;
-	int	j;
-	int	*st;
+	int	words_number;
+
+	words_number = count_numbers(ac, av);
+	if (!words_number)
+		return (0);
+	*stack = ft_calloc(sizeof(int), words_number);
+	fill_stack(ac, av, stack);
+	return (words_number);
+}
+
+void	fill_stack(int ac, char **av, int **stack)
+{
+	char	**tmp;
+	int		*st;
+	int		i;
+	int		j;
+	int		k;
 
 	st = *stack;
 	i = 1;
-	j = 0;
-	while (i <= stack_size)
+	k = 0;
+	while (i < ac)
 	{
-		st[j] = ft_atoi(av[i]);
-		i++;
-		j++;
-	}
-}
-
-void	display_stack(int *stack, int stack_size)
-{
-	int	i;
-
-	i = 0;
-	while (i < stack_size)
-	{
-		ft_printf("%d\n", stack[i]);
+		j = 0;
+		tmp = ft_split(av[i], ' ');
+		while (tmp[j])
+		{
+			st[k] = ft_atoi(tmp[j]);
+			j++;
+			k++;
+		}
 		i++;
 	}
 }
