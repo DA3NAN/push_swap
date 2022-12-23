@@ -6,7 +6,7 @@
 /*   By: aait-mal <aait-mal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 15:58:18 by aait-mal          #+#    #+#             */
-/*   Updated: 2022/12/22 22:02:31 by aait-mal         ###   ########.fr       */
+/*   Updated: 2022/12/23 19:39:15 by aait-mal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	count_numbers(int ac, char **av)
 	return (count);
 }
 
-int	check_valid_stack(int ac, char **av, int **stack)
+int	check_valid_stack(int ac, char **av, long **stack)
 {
 	int	words_number;
 
@@ -60,14 +60,18 @@ int	check_valid_stack(int ac, char **av, int **stack)
 	if (!words_number)
 		return (0);
 	*stack = ft_calloc(sizeof(int), words_number);
+	if (!*stack)
+		return (0);
 	fill_stack(ac, av, stack);
+	if (check_duplicate(stack, words_number))
+		return (0);
 	return (words_number);
 }
 
-void	fill_stack(int ac, char **av, int **stack)
+int	fill_stack(int ac, char **av, long **stack)
 {
 	char	**tmp;
-	int		*st;
+	long	*st;
 	int		i;
 	int		j;
 	int		k;
@@ -82,9 +86,12 @@ void	fill_stack(int ac, char **av, int **stack)
 		while (tmp[j])
 		{
 			st[k] = ft_atoi(tmp[j]);
+			if (st[k] == UINT_MAX)
+				return (0);
 			j++;
 			k++;
 		}
 		i++;
 	}
+	return (1);
 }

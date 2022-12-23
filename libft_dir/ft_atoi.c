@@ -6,16 +6,16 @@
 /*   By: aait-mal <aait-mal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 17:18:12 by aait-mal          #+#    #+#             */
-/*   Updated: 2022/11/01 13:53:25 by aait-mal         ###   ########.fr       */
+/*   Updated: 2022/12/23 17:12:01 by aait-mal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
-	long double	result;
-	int			sign;
+	long	result;
+	int		sign;
 
 	result = 0;
 	sign = 1;
@@ -30,11 +30,10 @@ int	ft_atoi(const char *str)
 	while (*str >= '0' && *str <= '9')
 	{
 		result = (result * 10) + ((char)*str - 48);
-		if (result >= 9223372036854775807UL && sign > 0)
-			return (-1);
-		else if (result >= 9223372036854775808UL && sign < 0)
-			return (0);
+		if ((result > 2147483647 && sign > 0)
+			|| (result > 2147483648 && sign < 0))
+			return (UINT_MAX);
 		str++;
 	}
-	return ((int)result * sign);
+	return (result * sign);
 }

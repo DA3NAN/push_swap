@@ -6,12 +6,12 @@
 #    By: aait-mal <aait-mal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/21 20:33:32 by aait-mal          #+#    #+#              #
-#    Updated: 2022/12/22 18:50:40 by aait-mal         ###   ########.fr        #
+#    Updated: 2022/12/22 22:14:05 by aait-mal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push
-SRC = push_swap.c push_swap_utils.c push_swap_utils2.c swap_functions.c
+SRC = push_swap.c push_swap_utils.c push_swap_utils2.c swap_functions.c push_functions.c
 LIBFT = libft_dir
 PRINTF = ft_printf_dir
 CC = cc
