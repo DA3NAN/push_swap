@@ -6,39 +6,44 @@
 /*   By: aait-mal <aait-mal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 18:35:18 by aait-mal          #+#    #+#             */
-/*   Updated: 2022/12/23 17:41:16 by aait-mal         ###   ########.fr       */
+/*   Updated: 2022/12/27 19:35:06 by aait-mal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	display_stacks(long *stack_a, long *stack_b, int stack_size)
+void	display_stack(t_list *stack)
 {
-	int	i;
+	t_list	*tmp;
 
-	i = 0;
-	ft_printf("a\tb\n");
-	ft_printf("-\t-\n");
-	while (i < stack_size)
+	tmp = stack;
+	ft_printf("Size of stack : %d\n", ft_lstsize((tmp)));
+	while (tmp)
 	{
-		ft_printf("%d\t%d\n", stack_a[i], stack_b[12]);
-		i++;
+		ft_printf("%d\n", tmp->content);
+		tmp = tmp->next;
 	}
 	ft_printf("\n");
 }
 
-int	check_duplicate(long **stack, int stack_size)
+int	check_duplicate(t_list *stack)
 {
-	int		i;
-	long	*st;
+	t_list	*tmp;
+	t_list	*tmp2;
+	int		number;
 
-	st = *stack;
-	i = 0;
-	while (i < stack_size)
+	tmp = stack;
+	while (tmp)
 	{
-		if (ft_intchr(&st[i] + 1, st[i], stack_size - i - 1))
-			return (1);
-		i++;
+		number = tmp->content;
+		tmp = tmp->next;
+		tmp2 = tmp;
+		while (tmp2)
+		{
+			if (tmp2->content == number)
+				return (1);
+			tmp2 = tmp2->next;
+		}
 	}
 	return (0);
 }

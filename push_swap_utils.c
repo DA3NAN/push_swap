@@ -6,7 +6,7 @@
 /*   By: aait-mal <aait-mal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 15:58:18 by aait-mal          #+#    #+#             */
-/*   Updated: 2022/12/23 19:39:15 by aait-mal         ###   ########.fr       */
+/*   Updated: 2022/12/27 19:21:19 by aait-mal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,45 +52,38 @@ int	count_numbers(int ac, char **av)
 	return (count);
 }
 
-int	check_valid_stack(int ac, char **av, long **stack)
+int	check_valid_stack(int ac, char **av, t_list **stack)
 {
 	int	words_number;
+	int	i;
 
+	i = 1;
 	words_number = count_numbers(ac, av);
 	if (!words_number)
 		return (0);
-	*stack = ft_calloc(sizeof(int), words_number);
-	if (!*stack)
-		return (0);
-	fill_stack(ac, av, stack);
-	if (check_duplicate(stack, words_number))
+	while (i < ac)
+	{
+		if (!ft_fill_stack(av[i], stack))
+			return (0);
+		i++;
+	}
+	if (check_duplicate(*stack))
 		return (0);
 	return (words_number);
 }
 
-int	fill_stack(int ac, char **av, long **stack)
+int	ft_fill_stack(char *str, t_list **stack)
 {
-	char	**tmp;
-	long	*st;
+	char	**numbers;
 	int		i;
-	int		j;
-	int		k;
 
-	st = *stack;
-	i = 1;
-	k = 0;
-	while (i < ac)
+	numbers = ft_split(str, ' ');
+	i = 0;
+	while (numbers[i])
 	{
-		j = 0;
-		tmp = ft_split(av[i], ' ');
-		while (tmp[j])
-		{
-			st[k] = ft_atoi(tmp[j]);
-			if (st[k] == UINT_MAX)
-				return (0);
-			j++;
-			k++;
-		}
+		ft_lstadd_back(stack, ft_lstnew(ft_atoi(numbers[i])));
+		if (ft_atoi(numbers[i]) == 4294967295)
+			return (0);
 		i++;
 	}
 	return (1);

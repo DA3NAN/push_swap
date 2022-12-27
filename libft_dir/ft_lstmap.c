@@ -6,13 +6,13 @@
 /*   By: aait-mal <aait-mal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 13:58:27 by aait-mal          #+#    #+#             */
-/*   Updated: 2022/11/03 18:16:53 by aait-mal         ###   ########.fr       */
+/*   Updated: 2022/12/24 11:57:39 by aait-mal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, int(*f)(int), void (*del)(int))
 {
 	t_list	*result;
 	t_list	*new;
