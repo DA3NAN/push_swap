@@ -1,49 +1,61 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_functions.c                                   :+:      :+:    :+:   */
+/*   rev_functions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aait-mal <aait-mal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/22 16:10:58 by aait-mal          #+#    #+#             */
-/*   Updated: 2023/01/09 12:58:54 by aait-mal         ###   ########.fr       */
+/*   Created: 2022/12/30 12:29:02 by aait-mal          #+#    #+#             */
+/*   Updated: 2023/01/09 12:42:54 by aait-mal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_list **stack)
+void	rb(t_list **stack)
 {
-	t_list	*tmp;
-
-	if (ft_lstsize(*stack) >= 2)
-	{
-		tmp = *stack;
-		*stack = tmp->next;
-		tmp->next = tmp->next->next;
-		(*stack)->next = tmp;
-	}
+	ra(stack);
 }
 
-void	sb(t_list **stack)
+void	rr(t_list **stack_a, t_list **stack_b)
 {
-	sa(stack);
+	ra(stack_a);
+	rb(stack_b);
 }
 
-void	ss(t_list **stack_a, t_list **stack_b)
-{
-	sa(stack_a);
-	sb(stack_b);
-}
-
-void	ra(t_list **stack)
+static t_list	*b_last(t_list *stack)
 {
 	t_list	*node;
 
+	node = stack;
+	while (node->next->next)
+		node = node->next;
+	return (node);
+}
+
+void	rra(t_list **stack)
+{
+	t_list	*node;
+	t_list	*last;
+	t_list	*tmp;
+
 	if (*stack == NULL || (*stack)->next == NULL)
 		return ;
-	node = *stack;
-	*stack = (*stack)->next;
+	last = ft_lstlast(*stack);
+	node = b_last(*stack);
 	node->next = NULL;
-	ft_lstadd_back(stack, node);
+	tmp = *stack;
+	last->next = tmp;
+	*stack = last;
+}
+
+void	rrb(t_list **stack)
+{
+	rra(stack);
+}
+
+void	rrr(t_list **stack_a, t_list **stack_b)
+{
+	rra(stack_a);
+	rrb(stack_b);
 }

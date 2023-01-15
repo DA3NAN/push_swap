@@ -6,7 +6,7 @@
 /*   By: aait-mal <aait-mal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 20:30:08 by aait-mal          #+#    #+#             */
-/*   Updated: 2022/12/27 19:35:42 by aait-mal         ###   ########.fr       */
+/*   Updated: 2023/01/09 13:01:27 by aait-mal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	main(int ac, char **av)
 	t_list	*stack_b;
 	int		stack_size;
 
-
 	stack_a = NULL;
 	stack_b = NULL;
 	stack_size = check_valid_stack(ac, av, &stack_a);
@@ -29,7 +28,25 @@ int	main(int ac, char **av)
 	}
 	else
 	{
-		display_stack(stack_a);
+		display_stack(stack_a, stack_b);
+		ft_printf("ss =============\n");
+		ss(&stack_a, &stack_b);
+		display_stack(stack_a, stack_b);
+		ft_printf("rr =============\n");
+		rr(&stack_a, &stack_b);
+		display_stack(stack_a, stack_b);
+		ft_printf("pb =============\n");
+		pb(&stack_a, &stack_b);
+		display_stack(stack_a, stack_b);
+		ft_printf("pb =============\n");
+		pb(&stack_a, &stack_b);
+		display_stack(stack_a, stack_b);
+		ft_printf("ss =============\n");
+		ss(&stack_a, &stack_b);
+		display_stack(stack_a, stack_b);
+		ft_printf("rr =============\n");
+		rr(&stack_a, &stack_b);
+		display_stack(stack_a, stack_b);
 	}
 	return (0);
 }

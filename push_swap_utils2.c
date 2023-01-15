@@ -6,22 +6,40 @@
 /*   By: aait-mal <aait-mal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 18:35:18 by aait-mal          #+#    #+#             */
-/*   Updated: 2022/12/27 19:35:06 by aait-mal         ###   ########.fr       */
+/*   Updated: 2023/01/09 12:09:53 by aait-mal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	display_stack(t_list *stack)
+void	display_stack(t_list *stack_a, t_list *stack_b)
 {
-	t_list	*tmp;
+	t_list	*tmp1;
+	t_list	*tmp2;
 
-	tmp = stack;
-	ft_printf("Size of stack : %d\n", ft_lstsize((tmp)));
-	while (tmp)
+	tmp1 = stack_a;
+	tmp2 = stack_b;
+	ft_printf("\nSize of stack A : %d\n", ft_lstsize((tmp1)));
+	ft_printf("Size of stack B : %d\n\n", ft_lstsize((tmp2)));
+	ft_printf("=A=\t=B=\n");
+	while (tmp1 || tmp2)
 	{
-		ft_printf("%d\n", tmp->content);
-		tmp = tmp->next;
+		if (tmp2 && tmp1)
+		{
+			ft_printf("%d\t%d\n", tmp1->content, tmp2->content);
+			tmp2 = tmp2->next;
+			tmp1 = tmp1->next;
+		}
+		else if (tmp1)
+		{
+			ft_printf("%d\n", tmp1->content);
+			tmp1 = tmp1->next;
+		}
+		else if (tmp2)
+		{
+			ft_printf("\t%d\n", tmp2->content);
+			tmp2 = tmp2->next;
+		}
 	}
 	ft_printf("\n");
 }
