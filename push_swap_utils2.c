@@ -60,38 +60,11 @@ int	check_duplicate(t_list **stack)
 		{
 			if (tmp2->content == number)
 			{
-				ft_lstclear(stack, del);
+				ft_lstclear(stack);
 				return (1);
 			}
 			tmp2 = tmp2->next;
 		}
 	}
-	return (0);
-}
-
-int	*lis(t_list **stack, int *size)
-{
-	t_list	*tmp1;
-	t_list	*tmp2;
-
-	tmp1 = *stack;
-	(*size) = 1;
-	while (tmp1->next)
-	{
-		tmp2 = tmp1->next;
-		if (tmp2->content > tmp1->content)
-		{
-			(*size)++;
-			while (tmp2->next)
-			{
-				if (tmp2->next->content > tmp2->content)
-					(*size)++;
-				tmp2 = tmp2->next;
-			}
-			ft_printf("%d\n", *size);
-		}
-		tmp1 = tmp1->next;
-	}
-	ft_printf("%d\n", *size);
 	return (0);
 }

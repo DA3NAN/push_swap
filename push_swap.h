@@ -21,6 +21,7 @@
 # include "ft_printf_dir/ft_printf.h"
 
 int		check_valid_stack(int ac, char **av, t_list **stack);
+void	push_swap(t_list **stack_a, t_list **stack_b);
 int		ft_fill_stack(char *str, t_list **stack);
 void	del(int x);
 void	display_stack(t_list *stack_a, t_list *stack_b);
@@ -36,6 +37,5 @@ void	rr(t_list **stack_a, t_list **stack_b);
 void	rra(t_list **stack);
 void	rrb(t_list **stack);
 void	rrr(t_list **stack_a, t_list **stack_b);
-int		*lis(t_list **stack, int *size);
 
 #endif

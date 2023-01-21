@@ -12,11 +12,6 @@
 
 #include "push_swap.h"
 
-void	del(int x)
-{
-	x = 0;
-}
-
 static int	check_valid_number(char *p)
 {
 	int	i;
@@ -90,7 +85,7 @@ int	ft_fill_stack(char *str, t_list **stack)
 	{
 		if (ft_atoi(numbers[i]) == 4294967295)
 		{
-			ft_lstclear(stack, del);
+			ft_lstclear(stack);
 			return (0);
 		}
 		tmp = ft_lstnew(ft_atoi(numbers[i]));
@@ -99,4 +94,9 @@ int	ft_fill_stack(char *str, t_list **stack)
 		ft_lstadd_back(stack, tmp);
 	}
 	return (1);
+}
+
+void	push_swap(t_list **stack_a, t_list **stack_b)
+{
+	display_stack(*stack_a, *stack_b);
 }

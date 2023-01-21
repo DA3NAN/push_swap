@@ -51,12 +51,10 @@ static	char	*check_set_end(char *s1, const char *set)
 char	*ft_strtrim(const char *s1, const char *set)
 {
 	char	*string;
-	size_t	index;
 
 	if (!s1 || !set)
 		return (NULL);
 	string = (char *)s1;
-	index = 0;
 	string = check_set_first(string, set);
 	string = check_set_end(string, set);
 	return (string);

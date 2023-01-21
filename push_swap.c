@@ -17,20 +17,18 @@ int	main(int ac, char **av)
 	t_list	*stack_a;
 	t_list	*stack_b;
 	int		stack_size;
-	int		*lisb;
-	int		size;
 
 	stack_a = NULL;
 	stack_b = NULL;
 	stack_size = check_valid_stack(ac, av, &stack_a);
 	if (ac < 2 || !stack_size)
 	{
-		write(2, "Error", 5);
+		write(2, "Error\n", 6);
 		exit(1);
 	}
 	else
 	{
-		lisb = lis(&stack_a, &size);
+		push_swap(&stack_a, &stack_b);
 	}
 	return (0);
 }
