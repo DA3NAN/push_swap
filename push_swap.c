@@ -6,7 +6,7 @@
 /*   By: aait-mal <aait-mal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 20:30:08 by aait-mal          #+#    #+#             */
-/*   Updated: 2023/01/09 13:01:27 by aait-mal         ###   ########.fr       */
+/*   Updated: 2023/01/20 19:31:54 by aait-mal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	main(int ac, char **av)
 	t_list	*stack_a;
 	t_list	*stack_b;
 	int		stack_size;
+	int		*lisb;
+	int		size;
 
 	stack_a = NULL;
 	stack_b = NULL;
@@ -28,25 +30,7 @@ int	main(int ac, char **av)
 	}
 	else
 	{
-		display_stack(stack_a, stack_b);
-		ft_printf("ss =============\n");
-		ss(&stack_a, &stack_b);
-		display_stack(stack_a, stack_b);
-		ft_printf("rr =============\n");
-		rr(&stack_a, &stack_b);
-		display_stack(stack_a, stack_b);
-		ft_printf("pb =============\n");
-		pb(&stack_a, &stack_b);
-		display_stack(stack_a, stack_b);
-		ft_printf("pb =============\n");
-		pb(&stack_a, &stack_b);
-		display_stack(stack_a, stack_b);
-		ft_printf("ss =============\n");
-		ss(&stack_a, &stack_b);
-		display_stack(stack_a, stack_b);
-		ft_printf("rr =============\n");
-		rr(&stack_a, &stack_b);
-		display_stack(stack_a, stack_b);
+		lisb = lis(&stack_a, &size);
 	}
 	return (0);
 }

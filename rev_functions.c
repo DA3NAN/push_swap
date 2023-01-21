@@ -6,16 +6,11 @@
 /*   By: aait-mal <aait-mal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 12:29:02 by aait-mal          #+#    #+#             */
-/*   Updated: 2023/01/09 12:42:54 by aait-mal         ###   ########.fr       */
+/*   Updated: 2023/01/20 16:38:10 by aait-mal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	rb(t_list **stack)
-{
-	ra(stack);
-}
 
 void	rr(t_list **stack_a, t_list **stack_b)
 {

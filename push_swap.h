@@ -6,7 +6,7 @@
 /*   By: aait-mal <aait-mal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 20:33:27 by aait-mal          #+#    #+#             */
-/*   Updated: 2023/01/09 12:55:03 by aait-mal         ###   ########.fr       */
+/*   Updated: 2023/01/20 18:44:58 by aait-mal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@
 
 int		check_valid_stack(int ac, char **av, t_list **stack);
 int		ft_fill_stack(char *str, t_list **stack);
+void	del(int x);
 void	display_stack(t_list *stack_a, t_list *stack_b);
-int		check_duplicate(t_list *stack);
+int		check_duplicate(t_list **stack);
 void	sa(t_list **stack);
 void	sb(t_list **stack);
 void	ss(t_list **stack_a, t_list **stack_b);
@@ -35,5 +36,6 @@ void	rr(t_list **stack_a, t_list **stack_b);
 void	rra(t_list **stack);
 void	rrb(t_list **stack);
 void	rrr(t_list **stack_a, t_list **stack_b);
+int		*lis(t_list **stack, int *size);
 
 #endif

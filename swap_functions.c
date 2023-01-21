@@ -6,7 +6,7 @@
 /*   By: aait-mal <aait-mal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 16:10:58 by aait-mal          #+#    #+#             */
-/*   Updated: 2023/01/09 12:58:54 by aait-mal         ###   ########.fr       */
+/*   Updated: 2023/01/20 16:38:13 by aait-mal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,9 @@ void	ra(t_list **stack)
 	*stack = (*stack)->next;
 	node->next = NULL;
 	ft_lstadd_back(stack, node);
+}
+
+void	rb(t_list **stack)
+{
+	ra(stack);
 }

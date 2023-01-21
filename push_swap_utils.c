@@ -6,11 +6,16 @@
 /*   By: aait-mal <aait-mal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 15:58:18 by aait-mal          #+#    #+#             */
-/*   Updated: 2022/12/31 12:22:02 by aait-mal         ###   ########.fr       */
+/*   Updated: 2023/01/20 17:03:29 by aait-mal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	del(int x)
+{
+	x = 0;
+}
 
 static int	check_valid_number(char *p)
 {
@@ -19,7 +24,7 @@ static int	check_valid_number(char *p)
 	i = 0;
 	while (p[i])
 	{
-		if (ft_isdigit(p[i]) || (p[i] == '-' && i == 0))
+		if (ft_isdigit(p[i]) || ((p[i] == '-' || p[i] == '+') && i == 0))
 			i++;
 		else
 			return (0);
@@ -67,24 +72,31 @@ int	check_valid_stack(int ac, char **av, t_list **stack)
 			return (0);
 		i++;
 	}
-	if (check_duplicate(*stack))
+	if (check_duplicate(stack))
 		return (0);
 	return (words_number);
 }
 
 int	ft_fill_stack(char *str, t_list **stack)
 {
-	char	**numbers;
-	int		i;
+	char		**numbers;
+	t_list		*tmp;
+	int			i;
+	static int	index = 0;
 
 	numbers = ft_split(str, ' ');
-	i = 0;
-	while (numbers[i])
+	i = -1;
+	while (numbers[++i])
 	{
-		ft_lstadd_back(stack, ft_lstnew(ft_atoi(numbers[i])));
 		if (ft_atoi(numbers[i]) == 4294967295)
+		{
+			ft_lstclear(stack, del);
 			return (0);
-		i++;
+		}
+		tmp = ft_lstnew(ft_atoi(numbers[i]));
+		tmp->index = index;
+		index++;
+		ft_lstadd_back(stack, tmp);
 	}
 	return (1);
 }

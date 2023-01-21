@@ -6,7 +6,7 @@
 /*   By: aait-mal <aait-mal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:21:38 by aait-mal          #+#    #+#             */
-/*   Updated: 2022/12/24 11:57:56 by aait-mal         ###   ########.fr       */
+/*   Updated: 2023/01/20 16:41:02 by aait-mal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 typedef struct s_list
 {
 	int				content;
+	int				index;
 	struct s_list	*next;
 }					t_list;
 
