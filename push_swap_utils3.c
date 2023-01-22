@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   push_swap_utils3.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aait-mal <aait-mal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: floki <floki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/12 17:18:12 by aait-mal          #+#    #+#             */
-/*   Updated: 2022/12/27 19:12:43 by aait-mal         ###   ########.fr       */
+/*   Created: 2023/01/22 13:00:40 by floki             #+#    #+#             */
+/*   Updated: 2023/01/22 13:04:06 by floki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "push_swap.h"
 
 long	ft_atoi(const char *str)
 {
@@ -36,4 +36,12 @@ long	ft_atoi(const char *str)
 		str++;
 	}
 	return (result * sign);
+}
+
+int	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	else
+		return (0);
 }

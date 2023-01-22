@@ -26,7 +26,8 @@ void	display_stack(t_list *stack_a, t_list *stack_b)
 	{
 		if (tmp2 && tmp1)
 		{
-			ft_printf("|%d|%d\t|%d|%d\n", tmp1->index, tmp1->content, tmp2->index, tmp2->content);
+			ft_printf("|%d|%d\t|%d|%d\n", tmp1->index, tmp1->content,
+				tmp2->index, tmp2->content);
 			tmp2 = tmp2->next;
 			tmp1 = tmp1->next;
 		}

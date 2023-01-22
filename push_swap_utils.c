@@ -19,7 +19,8 @@ static int	check_valid_number(char *p)
 	i = 0;
 	while (p[i])
 	{
-		if (ft_isdigit(p[i]) || ((p[i] == '-' || p[i] == '+') && i == 0))
+		if (ft_isdigit(p[i]) || ((p[i] == '-' || p[i] == '+') && i == 0
+				&& ft_isdigit(p[i + 1])))
 			i++;
 		else
 			return (0);
@@ -43,12 +44,16 @@ int	count_numbers(int ac, char **av)
 		while (splited_numbers[j])
 		{
 			if (!check_valid_number(splited_numbers[j]))
+			{
+				free_all(splited_numbers, j);
 				return (0);
+			}
 			j++;
 		}
 		count = count + j;
 		i++;
 	}
+	free_all(splited_numbers, j);
 	return (count);
 }
 
@@ -75,9 +80,7 @@ int	check_valid_stack(int ac, char **av, t_list **stack)
 int	ft_fill_stack(char *str, t_list **stack)
 {
 	char		**numbers;
-	t_list		*tmp;
 	int			i;
-	static int	index = 0;
 
 	numbers = ft_split(str, ' ');
 	i = -1;
@@ -86,13 +89,12 @@ int	ft_fill_stack(char *str, t_list **stack)
 		if (ft_atoi(numbers[i]) == 4294967295)
 		{
 			ft_lstclear(stack);
+			free_all(numbers, i);
 			return (0);
 		}
-		tmp = ft_lstnew(ft_atoi(numbers[i]));
-		tmp->index = index;
-		index++;
-		ft_lstadd_back(stack, tmp);
+		ft_lstadd_back(stack, ft_lstnew(ft_atoi(numbers[i])));
 	}
+	free_all(numbers, i);
 	return (1);
 }
 

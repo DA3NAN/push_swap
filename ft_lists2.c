@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_lists2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aait-mal <aait-mal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: floki <floki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 17:14:08 by aait-mal          #+#    #+#             */
-/*   Updated: 2022/10/30 18:37:40 by aait-mal         ###   ########.fr       */
+/*   Created: 2023/01/22 12:56:19 by floki             #+#    #+#             */
+/*   Updated: 2023/01/22 13:05:44 by floki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "push_swap.h"
 
-int	ft_toupper(int c)
+void	ft_lstclear(t_list **lst)
 {
-	if (c >= 'a' && c <= 'z')
-		c -= 32;
-	return (c);
+	t_list	*temp;
+
+	if (!lst)
+		return ;
+	while (*lst)
+	{
+		temp = *lst;
+		*lst = temp->next;
+		free(temp);
+	}
 }

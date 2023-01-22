@@ -17,15 +17,30 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <limits.h>
-# include "libft_dir/libft.h"
 # include "ft_printf_dir/ft_printf.h"
+
+typedef struct s_list
+{
+	int				content;
+	int				index;
+	struct s_list	*next;
+}					t_list;
 
 int		check_valid_stack(int ac, char **av, t_list **stack);
 void	push_swap(t_list **stack_a, t_list **stack_b);
 int		ft_fill_stack(char *str, t_list **stack);
-void	del(int x);
 void	display_stack(t_list *stack_a, t_list *stack_b);
 int		check_duplicate(t_list **stack);
+t_list	*ft_lstnew(int content);
+int		ft_lstsize(t_list *lst);
+t_list	*ft_lstlast(t_list *lst);
+char	**ft_split(const char *s, char c);
+void	*free_all(char **p, size_t j);
+long	ft_atoi(const char *str);
+int		ft_isdigit(int c);
+void	ft_lstclear(t_list **lst);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstadd_front(t_list **lst, t_list *new);
 void	sa(t_list **stack);
 void	sb(t_list **stack);
 void	ss(t_list **stack_a, t_list **stack_b);

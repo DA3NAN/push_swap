@@ -11,35 +11,29 @@
 # **************************************************************************** #
 
 NAME = push
-SRC = push_swap.c push_swap_utils.c push_swap_utils2.c swap_functions.c push_functions.c rev_functions.c
-LIBFT = libft_dir
+SRC =	push_swap.c push_swap_utils.c push_swap_utils2.c swap_functions.c push_functions.c rev_functions.c ft_lists.c ft_lists2.c push_swap_utils3.c ft_split.c
 PRINTF = ft_printf_dir
 CC = cc
 FLAGS = -Wall -Wextra -Werror
 
 all : $(NAME)
 
-$(NAME) : libft printf push_swap
-
-libft :
-	@echo "\033[0;36mMaking libft...\033[m"
-	@cd $(LIBFT) && make bonus && mv libft.a ..
+$(NAME) : printf push_swap
 
 printf :
 	@echo "\033[0;36mMaking ft_printf...\033[m"
 	@cd $(PRINTF) && make && mv libftprintf.a ..
 
 push_swap : $(SRC) push_swap.h
-	@echo "Making exec 'client'..."
-	@cc $(FLAGS) $(SRC) libft.a libftprintf.a -o push_swap
+	@echo "Making exec 'push_swap'..."
+	@cc $(FLAGS) $(SRC) libftprintf.a -o push_swap
 
 clean :
 	@echo "\033[0;31mCleaning...\033[m"
-	@cd $(LIBFT) && make clean
 	@cd $(PRINTF) && make clean
 
 fclean : clean
 	@echo "\033[0;31mCleaning execs...\033[m"
-	@rm -f push_swap libft.a libftprintf.a
+	@rm -f push_swap libftprintf.a
 
 re : fclean all

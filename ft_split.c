@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aait-mal <aait-mal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: floki <floki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 13:50:55 by aait-mal          #+#    #+#             */
-/*   Updated: 2022/11/04 10:54:20 by aait-mal         ###   ########.fr       */
+/*   Created: 2023/01/22 13:02:16 by floki             #+#    #+#             */
+/*   Updated: 2023/01/22 13:03:09 by floki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "push_swap.h"
 
 static size_t	count_words(const char *s, char c)
 {
@@ -57,7 +57,7 @@ static void	fill_word(char *s1, const char *s2, size_t len)
 	s1[index] = 0;
 }
 
-static void	*free_all(char **p, size_t j)
+void	*free_all(char **p, size_t j)
 {
 	size_t	i;
 

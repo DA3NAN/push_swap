@@ -21,7 +21,9 @@ int	main(int ac, char **av)
 	stack_a = NULL;
 	stack_b = NULL;
 	stack_size = check_valid_stack(ac, av, &stack_a);
-	if (ac < 2 || !stack_size)
+	if (ac == 1)
+		return (0);
+	else if (ac < 2 || !stack_size)
 	{
 		write(2, "Error\n", 6);
 		exit(1);
