@@ -19,9 +19,6 @@ void	display_stack(t_list *stack_a, t_list *stack_b)
 
 	tmp1 = stack_a;
 	tmp2 = stack_b;
-	ft_printf("\nSize of stack A : %d\n", ft_lstsize((tmp1)));
-	ft_printf("Size of stack B : %d\n\n", ft_lstsize((tmp2)));
-	ft_printf("=A=\t=B=\n");
 	while (tmp1 || tmp2)
 	{
 		if (tmp2 && tmp1)
@@ -42,7 +39,6 @@ void	display_stack(t_list *stack_a, t_list *stack_b)
 			tmp2 = tmp2->next;
 		}
 	}
-	ft_printf("\n");
 }
 
 int	check_duplicate(t_list **stack)

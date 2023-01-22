@@ -10,30 +10,33 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push
-SRC =	push_swap.c push_swap_utils.c push_swap_utils2.c swap_functions.c push_functions.c rev_functions.c ft_lists.c ft_lists2.c push_swap_utils3.c ft_split.c
+NAME = push_swap
+SRC =	$(wildcard *.c)
+OBJ = $(SRC:.c=.o)
 PRINTF = ft_printf_dir
 CC = cc
 FLAGS = -Wall -Wextra -Werror
 
-all : $(NAME)
+all : printf $(NAME)
 
-$(NAME) : printf push_swap
+%.o: %.c push_swap.h
+	$(CC) $(FLAGS) -c $<
 
 printf :
-	@echo "\033[0;36mMaking ft_printf...\033[m"
-	@cd $(PRINTF) && make && mv libftprintf.a ..
+	@echo "\033[0;34mMaking printf...\033[0m"
+	@make -C $(PRINTF)
 
-push_swap : $(SRC) push_swap.h
-	@echo "Making exec 'push_swap'..."
-	@cc $(FLAGS) $(SRC) libftprintf.a -o push_swap
+$(NAME) : $(OBJ)
+	@cc $(FLAGS) $(OBJ) ./$(PRINTF)/libftprintf.a -o $(NAME)
+	@echo "\033[0;34mMaking push_swap executable...\033[0m"
 
 clean :
-	@echo "\033[0;31mCleaning...\033[m"
-	@cd $(PRINTF) && make clean
+	@echo "\033[0;31mCleaning Objects...\033[0m"
+	@make -C $(PRINTF) clean
+	@rm -rf $(OBJ)
 
 fclean : clean
-	@echo "\033[0;31mCleaning execs...\033[m"
+	@echo "\033[0;31mCleaning push_swap...\033[0m"
 	@rm -f push_swap libftprintf.a
 
 re : fclean all

@@ -100,5 +100,6 @@ int	ft_fill_stack(char *str, t_list **stack)
 
 void	push_swap(t_list **stack_a, t_list **stack_b)
 {
+	index_stack(stack_a);
 	display_stack(*stack_a, *stack_b);
 }

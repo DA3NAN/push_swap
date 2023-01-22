@@ -24,7 +24,7 @@ all : $(NAME)
 $(NAME) : $(OBJECT)
 	@ar rc $(NAME) $(OBJECT)
 
-%.o: %.c ft_printf.h ../push_swap.h
+%.o: %.c ft_printf.h
 	@$(CC) $(FLAGS) -c $<
 
 clean :
