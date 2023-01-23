@@ -32,7 +32,7 @@ $(NAME) : $(OBJ)
 
 clean :
 	@echo "\033[0;31mCleaning Objects...\033[0m"
-	@make -C $(PRINTF) clean
+	@make -C $(PRINTF) fclean
 	@rm -rf $(OBJ)
 
 fclean : clean
