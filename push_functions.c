@@ -31,6 +31,17 @@ void	pb(t_list **stack_a, t_list **stack_b)
 
 void	pa(t_list **stack_a, t_list **stack_b)
 {
-	pb(stack_b, stack_a);
+	t_list	*tmp;
+	t_list	*tmp1;
+
+	tmp = *stack_b;
+	if (ft_lstsize(tmp) >= 1)
+	{
+		tmp1 = ft_lstnew((*stack_b)->content);
+		tmp1->index = (*stack_b)->index;
+		ft_lstadd_front(stack_a, tmp1);
+		*stack_b = (*stack_b)->next;
+		free(tmp);
+	}
 	ft_printf("pa\n");
 }

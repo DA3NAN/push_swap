@@ -6,7 +6,7 @@
 /*   By: adnane <adnane@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 13:49:26 by adnane            #+#    #+#             */
-/*   Updated: 2023/01/23 16:51:41 by adnane           ###   ########.fr       */
+/*   Updated: 2023/01/23 19:16:14 by adnane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,24 +44,24 @@ int	is_sorted(t_list *stack)
 void	sort_three(t_list **stack)
 {
 	t_list	*tmp;
-	int		first;
-	int		second;
-	int		last;
 
 	tmp = *stack;
-	first = tmp->index;
-	second = tmp->next->index;
-	last = tmp->next->next->index;
-	if (first > second && first < last)
+	if (is_sorted(*stack))
+		return ;
+	if (tmp->index > tmp->next->index && tmp->index < tmp->next->next->index)
 		sa(stack);
-	else if (first > second && second > last)
+	else if (tmp->index > tmp->next->index
+		&& tmp->next->index > tmp->next->next->index)
 	{
 		sa(stack);
 		rra(stack);
 	}
-	else if (first > second && first > last && second < last)
+	else if (tmp->index > tmp->next->index
+		&& tmp->index > tmp->next->next->index
+		&& tmp->next->index < tmp->next->next->index)
 		ra(stack);
-	else if (first == 0)
+	else if (tmp->index < tmp->next->index
+		&& tmp->index < tmp->next->next->index)
 	{
 		sa(stack);
 		ra(stack);
@@ -70,33 +70,23 @@ void	sort_three(t_list **stack)
 		rra(stack);
 }
 
-void	sort_five(t_list stack)
+void	sort_four(t_list **stack_a, t_list **stack_b)
 {
-
+	if (is_sorted(*stack_a))
+		return ;
+	rotate_min(stack_a);
+	pb(stack_a, stack_b);
+	sort_three(stack_a);
+	pa(stack_a, stack_b);
 }
 
-int	easy_cases(t_list **stack)
+void	sort_five(t_list **stack_a, t_list **stack_b)
 {
-	int	size;
-
-	size = ft_lstsize(*stack);
-	if (size == 1)
-		return (1);
-	else if (size == 2)
-	{
-		if (!is_sorted(*stack))
-			sa(stack);
-		return (1);
-	}
-	else if (size == 3)
-	{
-		if (!is_sorted(*stack))
-		{
-			sort_three(stack);
-		}
-		return (1);
-	}
-	else
-		sort_five(stack);
-	return (0);
+	if (is_sorted(*stack_a))
+		return ;
+	rotate_min(stack_a);
+	pb(stack_a, stack_b);
+	sort_four(stack_a, stack_b);
+	pa(stack_a, stack_b);
+	return ;
 }

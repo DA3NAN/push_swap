@@ -108,12 +108,9 @@ void	push_swap(t_list **stack_a, t_list **stack_b)
 		ft_printf("Stack is sorted\n");
 		return ;
 	}
-	if (easy_cases(stack_a))
-	{
-		display_stack(*stack_a, *stack_b);
+	if (easy_cases(stack_a, stack_b))
 		return ;
-	}
 	chunk = divide_chunks(*stack_a);
+	push_to_b(stack_a, stack_b, chunk);
 	ft_printf("chunk : %d\n", chunk);
-	display_stack(*stack_a, *stack_b);
 }

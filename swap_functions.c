@@ -14,46 +14,31 @@
 
 void	sa(t_list **stack)
 {
-	t_list	*tmp;
-
-	if (ft_lstsize(*stack) >= 2)
-	{
-		tmp = *stack;
-		*stack = tmp->next;
-		tmp->next = tmp->next->next;
-		(*stack)->next = tmp;
-	}
+	s(stack);
 	ft_printf("sa\n");
 }
 
 void	sb(t_list **stack)
 {
-	sa(stack);
+	s(stack);
 	ft_printf("sb\n");
 }
 
 void	ss(t_list **stack_a, t_list **stack_b)
 {
-	sa(stack_a);
-	sb(stack_b);
+	s(stack_a);
+	s(stack_b);
 	ft_printf("ss\n");
 }
 
 void	ra(t_list **stack)
 {
-	t_list	*node;
-
-	if (*stack == NULL || (*stack)->next == NULL)
-		return ;
-	node = *stack;
-	*stack = (*stack)->next;
-	node->next = NULL;
-	ft_lstadd_back(stack, node);
+	r(stack);
 	ft_printf("ra\n");
 }
 
 void	rb(t_list **stack)
 {
-	ra(stack);
+	r(stack);
 	ft_printf("rb\n");
 }

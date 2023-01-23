@@ -23,6 +23,7 @@ typedef struct s_list
 {
 	int				content;
 	int				index;
+	int				nb_moves;
 	struct s_list	*next;
 }					t_list;
 
@@ -41,20 +42,33 @@ int		ft_isdigit(int c);
 void	ft_lstclear(t_list **lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);
+void	s(t_list **stack);
 void	sa(t_list **stack);
 void	sb(t_list **stack);
 void	ss(t_list **stack_a, t_list **stack_b);
 void	pa(t_list **stack_a, t_list **stack_b);
 void	pb(t_list **stack_a, t_list **stack);
+void	r(t_list **stack);
 void	ra(t_list **stack);
 void	rb(t_list **stack);
 void	rr(t_list **stack_a, t_list **stack_b);
+void	rr1(t_list **stack);
 void	rra(t_list **stack);
 void	rrb(t_list **stack);
 void	rrr(t_list **stack_a, t_list **stack_b);
 void	index_stack(t_list **stack);
 int		divide_chunks(t_list *stack);
-int		easy_cases(t_list **stack);
+int		easy_cases(t_list **stack_a, t_list **stack_b);
 int		is_sorted(t_list *stack);
+void	sort_three(t_list **stack);
+void	sort_four(t_list **stack_a, t_list **stack_b);
+void	sort_five(t_list **stack_a, t_list **stack_b);
+int		get_position(t_list *stack, int index);
+void	rotate_min(t_list **stack_a);
+int		get_min(t_list *stack);
+int		min_index(t_list *stack);
+void	push_to_b(t_list **stack_a, t_list **stack_b, int chunk);
+int		count_befor_middle(t_list *stack, int position);
+int	count_after_middle(t_list *stack, int position);
 
 #endif
