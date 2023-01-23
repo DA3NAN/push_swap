@@ -23,17 +23,20 @@ void	sa(t_list **stack)
 		tmp->next = tmp->next->next;
 		(*stack)->next = tmp;
 	}
+	ft_printf("sa\n");
 }
 
 void	sb(t_list **stack)
 {
 	sa(stack);
+	ft_printf("sb\n");
 }
 
 void	ss(t_list **stack_a, t_list **stack_b)
 {
 	sa(stack_a);
 	sb(stack_b);
+	ft_printf("ss\n");
 }
 
 void	ra(t_list **stack)
@@ -46,9 +49,11 @@ void	ra(t_list **stack)
 	*stack = (*stack)->next;
 	node->next = NULL;
 	ft_lstadd_back(stack, node);
+	ft_printf("ra\n");
 }
 
 void	rb(t_list **stack)
 {
 	ra(stack);
+	ft_printf("rb\n");
 }

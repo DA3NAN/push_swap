@@ -15,17 +15,22 @@
 void	pb(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*tmp;
+	t_list	*tmp1;
 
 	tmp = *stack_a;
 	if (ft_lstsize(tmp) >= 1)
 	{
-		ft_lstadd_front(stack_b, ft_lstnew((*stack_a)->content));
+		tmp1 = ft_lstnew((*stack_a)->content);
+		tmp1->index = (*stack_a)->index;
+		ft_lstadd_front(stack_b, tmp1);
 		*stack_a = (*stack_a)->next;
 		free(tmp);
 	}
+	ft_printf("pb\n");
 }
 
 void	pa(t_list **stack_a, t_list **stack_b)
 {
 	pb(stack_b, stack_a);
+	ft_printf("pa\n");
 }

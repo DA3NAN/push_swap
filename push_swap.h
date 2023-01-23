@@ -53,5 +53,8 @@ void	rra(t_list **stack);
 void	rrb(t_list **stack);
 void	rrr(t_list **stack_a, t_list **stack_b);
 void	index_stack(t_list **stack);
+int		divide_chunks(t_list *stack);
+int		easy_cases(t_list **stack);
+int		is_sorted(t_list *stack);
 
 #endif

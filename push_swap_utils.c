@@ -100,6 +100,20 @@ int	ft_fill_stack(char *str, t_list **stack)
 
 void	push_swap(t_list **stack_a, t_list **stack_b)
 {
+	int	chunk;
+
 	index_stack(stack_a);
+	if (is_sorted(*stack_a))
+	{
+		ft_printf("Stack is sorted\n");
+		return ;
+	}
+	if (easy_cases(stack_a))
+	{
+		display_stack(*stack_a, *stack_b);
+		return ;
+	}
+	chunk = divide_chunks(*stack_a);
+	ft_printf("chunk : %d\n", chunk);
 	display_stack(*stack_a, *stack_b);
 }
