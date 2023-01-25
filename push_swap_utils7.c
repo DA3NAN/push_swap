@@ -45,20 +45,24 @@ void	set_nb_moves(t_list *stack, int index)
 
 void	push_to_b(t_list **stack_a, t_list **stack_b, int chunk)
 {
-	t_list	*tmp;
 	int		count;
 
-	tmp = *stack_a;
 	count = chunk;
-	(void)stack_b;
-	while (tmp)
+	while ((*stack_a))
 	{
-		if (tmp->index < count)
+		if ((*stack_a)->index < count)
 		{
-			set_nb_moves(*stack_a, tmp->index);
-			ft_printf("node : %d, index : %d, nb_moves : %d\n",
-				tmp->content, tmp->index, tmp->nb_moves);
+			if ((*stack_a)->index < count - (chunk / 2))
+				pb(stack_a, stack_b);
+			else
+			{
+				pb(stack_a, stack_b);
+				rb(stack_b);
+			}
 		}
-		tmp = tmp->next;
+		else
+			ra(stack_a);
+		if (ft_lstsize(*stack_b) == count)
+			count = count + chunk;
 	}
 }

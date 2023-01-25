@@ -23,20 +23,20 @@ all : printf $(NAME)
 	$(CC) $(FLAGS) -c $<
 
 printf :
-	@echo "\033[0;34mMaking printf...\033[0m"
+	@echo "Making printf..."
 	@make -C $(PRINTF)
 
 $(NAME) : $(OBJ)
 	@cc $(FLAGS) $(OBJ) ./$(PRINTF)/libftprintf.a -o $(NAME)
-	@echo "\033[0;34mMaking push_swap executable...\033[0m"
+	@echo "Making push_swap executable..."
 
 clean :
-	@echo "\033[0;31mCleaning Objects...\033[0m"
+	@echo "Cleaning Objects..."
 	@make -C $(PRINTF) fclean
 	@rm -rf $(OBJ)
 
 fclean : clean
-	@echo "\033[0;31mCleaning push_swap...\033[0m"
+	@echo "Cleaning push_swap..."
 	@rm -f push_swap libftprintf.a
 
 re : fclean all

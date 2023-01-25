@@ -21,7 +21,7 @@ int	divide_chunks(t_list *stack)
 	if (size <= 200)
 		chunk = size / 5;
 	else if (size <= 500)
-		chunk = size / 9;
+		chunk = size / 8;
 	else
 		chunk = size / 12;
 	return (chunk);
