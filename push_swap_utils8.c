@@ -48,3 +48,48 @@ int	count_after_middle(t_list *stack, int position)
 	}
 	return (count);
 }
+
+static int	count(t_list *stack, int position, int middle)
+{
+	int		count;
+
+	count = 0;
+	if (position <= middle)
+		count = count_befor_middle(stack, position);
+	else
+		count = count_after_middle(stack, position);
+	return (count);
+}
+
+void	set_nb_moves(t_list *stack, int index)
+{
+	t_list	*tmp;
+	int		position;
+	int		middle;
+	int		n_moves;
+
+	tmp = stack;
+	position = get_position(stack, index);
+	middle = ft_lstsize(stack) / 2;
+	n_moves = count(stack, position, middle);
+	while (tmp)
+	{
+		if (tmp->index == index)
+			tmp->nb_moves = n_moves;
+		tmp = tmp->next;
+	}
+}
+
+int	get_nb_moves(t_list	*stack, int	index)
+{
+	t_list	*tmp;
+
+	tmp = stack;
+	while (tmp)
+	{
+		if(tmp->index == index)
+			return(tmp->nb_moves);
+		tmp = tmp->next;
+	}
+	return (0);
+}

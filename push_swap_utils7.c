@@ -12,37 +12,6 @@
 
 #include "push_swap.h"
 
-static int	count(t_list *stack, int position, int middle)
-{
-	int		count;
-
-	count = 0;
-	if (position <= middle)
-		count = count_befor_middle(stack, position);
-	else
-		count = count_after_middle(stack, position);
-	return (count);
-}
-
-void	set_nb_moves(t_list *stack, int index)
-{
-	t_list	*tmp;
-	int		position;
-	int		middle;
-	int		n_moves;
-
-	tmp = stack;
-	position = get_position(stack, index);
-	middle = ft_lstsize(stack) / 2;
-	n_moves = count(stack, position, middle);
-	while (tmp)
-	{
-		if (tmp->index == index)
-			tmp->nb_moves = n_moves;
-		tmp = tmp->next;
-	}
-}
-
 void	push_to_b(t_list **stack_a, t_list **stack_b, int chunk)
 {
 	int		count;
@@ -64,5 +33,80 @@ void	push_to_b(t_list **stack_a, t_list **stack_b, int chunk)
 			ra(stack_a);
 		if (ft_lstsize(*stack_b) == count)
 			count = count + chunk;
+	}
+}
+
+void	help_push_up(t_list **stack_a, t_list **stack_b, int index)
+{
+	while (*stack_b && (*stack_b)->index != index)
+		rb(stack_b);
+	if ((*stack_b)->index == index)
+		pa(stack_a, stack_b);
+}
+
+void	help_push_down(t_list **stack_a, t_list **stack_b, int index)
+{
+	while (*stack_b && (*stack_b)->index != index)
+		rrb(stack_b);
+	if ((*stack_b)->index == index)
+		pa(stack_a, stack_b);
+}
+
+void	help_push(t_list **stack_a, t_list **stack_b, int index)
+{
+	if (get_position(*stack_b, index) > ft_lstsize(*stack_b) / 2)
+	{
+		help_push_down(stack_a, stack_b, index);
+	}
+	else
+	{
+		help_push_up(stack_a, stack_b, index);
+	}
+}
+
+int		is_index_there(t_list *stack, int index)
+{
+	while (stack)
+	{
+		if (stack->index == index)
+			return (1);
+		stack = stack->next;
+	}
+	return (0);
+}
+
+void	push_to_a(t_list **stack_a, t_list **stack_b)
+{
+	int		max;
+	int		nb_mv_max;
+	int		nb_mv_max_prev;
+
+	max = ft_lstsize(*stack_b) - 1;
+	while (*stack_b)
+	{
+		set_nb_moves(*stack_b, max);
+		nb_mv_max = get_nb_moves(*stack_b, max);
+		if (!is_index_there(*stack_b, max - 1))
+		{
+			help_push(stack_a, stack_b, max);
+			max--;
+		}
+		else
+		{
+			set_nb_moves(*stack_b, max-1);
+			nb_mv_max_prev = get_nb_moves(*stack_b, max - 1);
+			if (nb_mv_max < nb_mv_max_prev)
+			{
+				help_push(stack_a, stack_b, max);
+				max--;
+			}
+			else
+			{
+				help_push(stack_a, stack_b, max - 1);
+				help_push(stack_a, stack_b, max);
+				sa(stack_a);
+				max = max - 2;
+			}
+		}
 	}
 }

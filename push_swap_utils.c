@@ -111,4 +111,5 @@ void	push_swap(t_list **stack_a, t_list **stack_b)
 		return ;
 	chunk = divide_chunks(*stack_a);
 	push_to_b(stack_a, stack_b, chunk);
+	push_to_a(stack_a, stack_b);
 }

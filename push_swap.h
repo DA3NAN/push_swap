@@ -68,7 +68,10 @@ void	rotate_min(t_list **stack_a);
 int		get_min(t_list *stack);
 int		min_index(t_list *stack);
 void	push_to_b(t_list **stack_a, t_list **stack_b, int chunk);
+void	push_to_a(t_list **stack_a, t_list **stack_b);
 int		count_befor_middle(t_list *stack, int position);
-int	count_after_middle(t_list *stack, int position);
+int		count_after_middle(t_list *stack, int position);
+void	set_nb_moves(t_list *stack, int index);
+int		get_nb_moves(t_list	*stack, int	index);
 
 #endif
