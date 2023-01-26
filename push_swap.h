@@ -36,7 +36,7 @@ t_list	*ft_lstnew(int content);
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
 char	**ft_split(const char *s, char c);
-void	*free_all(char **p, size_t j);
+void	free_all(char **p, size_t j);
 long	ft_atoi(const char *str);
 int		ft_isdigit(int c);
 void	ft_lstclear(t_list **lst);

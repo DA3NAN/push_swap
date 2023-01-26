@@ -57,7 +57,7 @@ static void	fill_word(char *s1, const char *s2, size_t len)
 	s1[index] = 0;
 }
 
-void	*free_all(char **p, size_t j)
+void	free_all(char **p, size_t j)
 {
 	size_t	i;
 
@@ -68,7 +68,6 @@ void	*free_all(char **p, size_t j)
 		i++;
 	}
 	free(p);
-	return (NULL);
 }
 
 char	**ft_split(const char *s, char c)
@@ -92,7 +91,7 @@ char	**ft_split(const char *s, char c)
 		word_length = count_word_length(s, c);
 		result[index] = malloc((word_length + 1) * sizeof(char));
 		if (!result[index])
-			return (free_all(result, index));
+			return (free_all(result, index), NULL);
 		fill_word(result[index], s, word_length);
 		s = s + word_length;
 	}

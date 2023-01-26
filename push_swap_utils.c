@@ -28,6 +28,19 @@ static int	check_valid_number(char *p)
 	return (1);
 }
 
+void	free_all_push(char **p)
+{
+	size_t	i;
+
+	i = 0;
+	while (p[i])
+	{
+		free(p[i]);
+		i++;
+	}
+	free(p);
+}
+
 int	count_numbers(int ac, char **av)
 {
 	char	**splited_numbers;
@@ -45,15 +58,16 @@ int	count_numbers(int ac, char **av)
 		{
 			if (!check_valid_number(splited_numbers[j]))
 			{
-				free_all(splited_numbers, j);
+				free_all_push(splited_numbers);
 				return (0);
 			}
 			j++;
 		}
+		if (splited_numbers)
+			free_all_push(splited_numbers);
 		count = count + j;
 		i++;
 	}
-	free_all(splited_numbers, j);
 	return (count);
 }
 

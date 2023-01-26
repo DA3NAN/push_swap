@@ -31,6 +31,8 @@ int	main(int ac, char **av)
 	else
 	{
 		push_swap(&stack_a, &stack_b);
+		ft_lstclear(&stack_a);
+		ft_lstclear(&stack_b);
 	}
 	return (0);
 }
