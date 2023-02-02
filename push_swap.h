@@ -73,5 +73,6 @@ int		count_befor_middle(t_list *stack, int position);
 int		count_after_middle(t_list *stack, int position);
 void	set_nb_moves(t_list *stack, int index);
 int		get_nb_moves(t_list	*stack, int	index);
+void	free_all_push(char **p);
 
 #endif

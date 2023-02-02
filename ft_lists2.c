@@ -25,3 +25,16 @@ void	ft_lstclear(t_list **lst)
 		free(temp);
 	}
 }
+
+void	free_all_push(char **p)
+{
+	size_t	i;
+
+	i = 0;
+	while (p[i])
+	{
+		free(p[i]);
+		i++;
+	}
+	free(p);
+}

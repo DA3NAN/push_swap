@@ -28,19 +28,6 @@ static int	check_valid_number(char *p)
 	return (1);
 }
 
-void	free_all_push(char **p)
-{
-	size_t	i;
-
-	i = 0;
-	while (p[i])
-	{
-		free(p[i]);
-		i++;
-	}
-	free(p);
-}
-
 int	count_numbers(int ac, char **av)
 {
 	char	**splited_numbers;
