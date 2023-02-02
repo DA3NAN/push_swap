@@ -6,7 +6,7 @@
 /*   By: aait-mal <aait-mal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 19:10:46 by aait-mal          #+#    #+#             */
-/*   Updated: 2023/02/02 12:40:36 by aait-mal         ###   ########.fr       */
+/*   Updated: 2023/02/02 14:12:13 by aait-mal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdio.h>
 # include <limits.h>
 # include "../ft_printf_dir/ft_printf.h"
-# include "../get_next_line/get_next_line.h"
+# include "../get_next_line_dir/get_next_line.h"
 
 typedef struct s_list
 {
