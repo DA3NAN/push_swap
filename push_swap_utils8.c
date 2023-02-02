@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils8.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adnane <adnane@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aait-mal <aait-mal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 20:47:16 by adnane            #+#    #+#             */
-/*   Updated: 2023/01/23 20:52:45 by adnane           ###   ########.fr       */
+/*   Updated: 2023/02/02 15:20:04 by aait-mal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	count_befor_middle(t_list *stack, int position)
 	}
 	return (count);
 }
-
 
 int	count_after_middle(t_list *stack, int position)
 {
@@ -80,15 +79,15 @@ void	set_nb_moves(t_list *stack, int index)
 	}
 }
 
-int	get_nb_moves(t_list	*stack, int	index)
+int	get_nb_moves(t_list	*stack, int index)
 {
 	t_list	*tmp;
 
 	tmp = stack;
 	while (tmp)
 	{
-		if(tmp->index == index)
-			return(tmp->nb_moves);
+		if (tmp->index == index)
+			return (tmp->nb_moves);
 		tmp = tmp->next;
 	}
 	return (0);

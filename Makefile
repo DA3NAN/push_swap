@@ -13,7 +13,7 @@
 NAME = push_swap
 SRC =	$(wildcard *.c)
 SRC_BNS =	$(wildcard ./checker_dir/*.c)
-SRC_GET_NEXT_LINE = $(wildcard ./get_next_line/*.c)
+SRC_GET_NEXT_LINE = $(wildcard ./get_next_line_dir/*.c)
 OBJ = $(SRC:.c=.o)
 OBJ_BNS = $(SRC_BNS:.c=.o)
 PRINTF = ft_printf_dir
@@ -22,11 +22,11 @@ FLAGS = -Wall -Wextra -Werror
 
 all : printf $(NAME)
 
-%.o: %.c push_swap.h
-	$(CC) $(FLAGS) -c $<
-
 %_bonus.o: %_bonus.c ./checker_dir/push_swap_bonus.h
 	$(CC) $(FLAGS) -c $< -o $@
+
+%.o: %.c push_swap.h
+	$(CC) $(FLAGS) -c $<
 
 printf :
 	@echo "Making printf..."

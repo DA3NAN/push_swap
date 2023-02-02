@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils5.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adnane <adnane@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aait-mal <aait-mal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 13:49:26 by adnane            #+#    #+#             */
-/*   Updated: 2023/01/23 19:16:14 by adnane           ###   ########.fr       */
+/*   Updated: 2023/02/02 15:17:40 by aait-mal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,6 @@ int	divide_chunks(t_list *stack)
 	else
 		chunk = size / 12;
 	return (chunk);
-}
-
-int	is_sorted(t_list *stack)
-{
-	t_list	*tmp;
-
-	tmp = stack;
-	while (tmp->next)
-	{
-		if (tmp->next->index < tmp->index)
-			return (0);
-		tmp = tmp->next;
-	}
-	return (1);
 }
 
 void	sort_three(t_list **stack)

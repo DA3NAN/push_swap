@@ -34,6 +34,7 @@ static int	get_new(t_list *stack, int min)
 	int		new_min;
 
 	tmp = stack;
+	new_min = tmp->content;
 	while (tmp)
 	{
 		if (tmp->content > min)

@@ -6,13 +6,13 @@
 /*   By: aait-mal <aait-mal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:30:18 by aait-mal          #+#    #+#             */
-/*   Updated: 2023/02/02 12:51:39 by aait-mal         ###   ########.fr       */
+/*   Updated: 2023/02/02 14:55:42 by aait-mal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 
-void apply_command(t_list **stack_a, t_list **stack_b, char *command)
+void	apply_command(t_list **stack_a, t_list **stack_b, char *command)
 {
 	if (ft_strcmp("sa\n", command) == 0)
 		sa(stack_a);
@@ -71,7 +71,7 @@ int	main(int ac, char **av)
 					ft_printf("OK\n");
 				else
 					ft_printf("KO\n");
-				break;
+				break ;
 			}
 			apply_command(&stack_a, &stack_b, command);
 		}

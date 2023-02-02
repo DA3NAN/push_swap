@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils7.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adnane <adnane@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aait-mal <aait-mal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 19:34:07 by adnane            #+#    #+#             */
-/*   Updated: 2023/01/23 20:52:21 by adnane           ###   ########.fr       */
+/*   Updated: 2023/02/02 15:18:29 by aait-mal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,17 +64,6 @@ void	help_push(t_list **stack_a, t_list **stack_b, int index)
 	}
 }
 
-int		is_index_there(t_list *stack, int index)
-{
-	while (stack)
-	{
-		if (stack->index == index)
-			return (1);
-		stack = stack->next;
-	}
-	return (0);
-}
-
 void	push_to_a(t_list **stack_a, t_list **stack_b)
 {
 	int		max;
@@ -93,7 +82,7 @@ void	push_to_a(t_list **stack_a, t_list **stack_b)
 		}
 		else
 		{
-			set_nb_moves(*stack_b, max-1);
+			set_nb_moves(*stack_b, max - 1);
 			nb_mv_max_prev = get_nb_moves(*stack_b, max - 1);
 			if (nb_mv_max < nb_mv_max_prev)
 			{

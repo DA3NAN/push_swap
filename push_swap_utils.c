@@ -42,15 +42,14 @@ int	count_numbers(int ac, char **av)
 		if (av[i][0] == '\0')
 			return (0);
 		splited_numbers = ft_split(av[i], ' ');
-		j = 0;
-		while (splited_numbers[j])
+		j = -1;
+		while (splited_numbers[++j])
 		{
 			if (!check_valid_number(splited_numbers[j]))
 			{
 				free_all_push(splited_numbers);
 				return (0);
 			}
-			j++;
 		}
 		if (splited_numbers)
 			free_all_push(splited_numbers);
