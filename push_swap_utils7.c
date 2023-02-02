@@ -6,7 +6,7 @@
 /*   By: aait-mal <aait-mal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 19:34:07 by adnane            #+#    #+#             */
-/*   Updated: 2023/02/02 15:18:29 by aait-mal         ###   ########.fr       */
+/*   Updated: 2023/02/02 15:39:04 by aait-mal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,29 +73,22 @@ void	push_to_a(t_list **stack_a, t_list **stack_b)
 	max = ft_lstsize(*stack_b) - 1;
 	while (*stack_b)
 	{
-		set_nb_moves(*stack_b, max);
-		nb_mv_max = get_nb_moves(*stack_b, max);
+		nb_mv_max = set_get(*stack_b, max);
 		if (!is_index_there(*stack_b, max - 1))
-		{
 			help_push(stack_a, stack_b, max);
-			max--;
-		}
 		else
 		{
-			set_nb_moves(*stack_b, max - 1);
-			nb_mv_max_prev = get_nb_moves(*stack_b, max - 1);
-			if (nb_mv_max < nb_mv_max_prev)
-			{
+			nb_mv_max_prev = set_get(*stack_b, max - 1);
+			if (nb_mv_max <= nb_mv_max_prev)
 				help_push(stack_a, stack_b, max);
-				max--;
-			}
 			else
 			{
 				help_push(stack_a, stack_b, max - 1);
 				help_push(stack_a, stack_b, max);
 				sa(stack_a);
-				max = max - 2;
+				max--;
 			}
 		}
+		max--;
 	}
 }

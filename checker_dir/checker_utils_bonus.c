@@ -6,7 +6,7 @@
 /*   By: aait-mal <aait-mal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 19:19:19 by aait-mal          #+#    #+#             */
-/*   Updated: 2023/02/02 12:36:35 by aait-mal         ###   ########.fr       */
+/*   Updated: 2023/02/02 15:50:10 by aait-mal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,26 +36,21 @@ int	count_numbers(int ac, char **av)
 	int		count;
 
 	count = 0;
-	i = 1;
-	while (i < ac)
+	i = 0;
+	while (++i < ac)
 	{
 		if (av[i][0] == '\0')
 			return (0);
 		splited_numbers = ft_split(av[i], ' ');
-		j = 0;
-		while (splited_numbers[j])
+		j = -1;
+		while (splited_numbers[++j])
 		{
 			if (!check_valid_number(splited_numbers[j]))
-			{
-				free_all_push(splited_numbers);
-				return (0);
-			}
-			j++;
+				return (free_all_push(splited_numbers), 0);
 		}
 		if (splited_numbers)
 			free_all_push(splited_numbers);
 		count = count + j;
-		i++;
 	}
 	return (count);
 }

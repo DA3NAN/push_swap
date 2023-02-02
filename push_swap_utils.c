@@ -36,8 +36,8 @@ int	count_numbers(int ac, char **av)
 	int		count;
 
 	count = 0;
-	i = 1;
-	while (i < ac)
+	i = 0;
+	while (++i < ac)
 	{
 		if (av[i][0] == '\0')
 			return (0);
@@ -46,15 +46,11 @@ int	count_numbers(int ac, char **av)
 		while (splited_numbers[++j])
 		{
 			if (!check_valid_number(splited_numbers[j]))
-			{
-				free_all_push(splited_numbers);
-				return (0);
-			}
+				return (free_all_push(splited_numbers), 0);
 		}
 		if (splited_numbers)
 			free_all_push(splited_numbers);
 		count = count + j;
-		i++;
 	}
 	return (count);
 }

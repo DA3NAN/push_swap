@@ -6,11 +6,17 @@
 /*   By: aait-mal <aait-mal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:30:18 by aait-mal          #+#    #+#             */
-/*   Updated: 2023/02/02 14:55:42 by aait-mal         ###   ########.fr       */
+/*   Updated: 2023/02/02 16:32:12 by aait-mal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
+
+void	error(void)
+{
+	write(2, "Error\n", 6);
+	exit(1);
+}
 
 void	apply_command(t_list **stack_a, t_list **stack_b, char *command)
 {
@@ -37,10 +43,7 @@ void	apply_command(t_list **stack_a, t_list **stack_b, char *command)
 	else if (ft_strcmp("rrr\n", command) == 0)
 		rrr(stack_a, stack_b);
 	else
-	{
-		write(2, "Error\n", 6);
-		exit(1);
-	}
+		error();
 }
 
 int	main(int ac, char **av)
@@ -54,27 +57,28 @@ int	main(int ac, char **av)
 		return (0);
 	stack_a = NULL;
 	stack_b = NULL;
+	command = NULL;
 	stack_size = check_valid_stack(ac, av, &stack_a);
 	if (ac < 2 || !stack_size)
-	{
-		write(2, "Error\n", 6);
-		exit(1);
-	}
+		error();
 	else
-	{
-		while (1)
-		{
-			command = get_next_line(0);
-			if (!command)
-			{
-				if (is_sorted(stack_a))
-					ft_printf("OK\n");
-				else
-					ft_printf("KO\n");
-				break ;
-			}
-			apply_command(&stack_a, &stack_b, command);
-		}
-	}
+		apply_to_stack(&stack_a, &stack_b, command);
 	return (0);
+}
+
+void	apply_to_stack(t_list **stack_a, t_list **stack_b, char *command)
+{
+	while (1)
+	{
+		command = get_next_line(0);
+		if (!command)
+		{
+			if (is_sorted(*stack_a))
+				ft_printf("OK\n");
+			else
+				ft_printf("KO\n");
+			break ;
+		}
+		apply_command(stack_a, stack_b, command);
+	}
 }

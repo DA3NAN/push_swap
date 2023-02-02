@@ -6,7 +6,7 @@
 /*   By: aait-mal <aait-mal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 19:10:46 by aait-mal          #+#    #+#             */
-/*   Updated: 2023/02/02 14:12:13 by aait-mal         ###   ########.fr       */
+/*   Updated: 2023/02/02 16:32:31 by aait-mal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,7 @@ void	rrr(t_list **stack_a, t_list **stack_b);
 void	free_all_push(char **p);
 int		ft_strcmp(const char *s1, const char *s2);
 int		is_sorted(t_list *stack);
+void	apply_to_stack(t_list **stack_a, t_list **stack_b, char *command);
+void	error(void);
 
 #endif

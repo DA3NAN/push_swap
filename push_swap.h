@@ -60,6 +60,8 @@ void	index_stack(t_list **stack);
 int		divide_chunks(t_list *stack);
 int		easy_cases(t_list **stack_a, t_list **stack_b);
 int		is_sorted(t_list *stack);
+int		is_index_there(t_list *stack, int index);
+int		set_get(t_list *stack, int index);
 void	sort_three(t_list **stack);
 void	sort_four(t_list **stack_a, t_list **stack_b);
 void	sort_five(t_list **stack_a, t_list **stack_b);
