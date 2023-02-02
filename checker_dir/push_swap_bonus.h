@@ -6,7 +6,7 @@
 /*   By: aait-mal <aait-mal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 19:10:46 by aait-mal          #+#    #+#             */
-/*   Updated: 2023/02/01 19:30:07 by aait-mal         ###   ########.fr       */
+/*   Updated: 2023/02/02 12:40:36 by aait-mal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdio.h>
 # include <limits.h>
 # include "../ft_printf_dir/ft_printf.h"
+# include "../get_next_line/get_next_line.h"
 
 typedef struct s_list
 {
@@ -57,5 +58,7 @@ void	rra(t_list **stack);
 void	rrb(t_list **stack);
 void	rrr(t_list **stack_a, t_list **stack_b);
 void	free_all_push(char **p);
+int		ft_strcmp(const char *s1, const char *s2);
+int		is_sorted(t_list *stack);
 
 #endif

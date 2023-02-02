@@ -13,6 +13,7 @@
 NAME = push_swap
 SRC =	$(wildcard *.c)
 SRC_BNS =	$(wildcard ./checker_dir/*.c)
+SRC_GET_NEXT_LINE = $(wildcard ./get_next_line/*.c)
 OBJ = $(SRC:.c=.o)
 OBJ_BNS = $(SRC_BNS:.c=.o)
 PRINTF = ft_printf_dir
@@ -32,7 +33,7 @@ printf :
 	@make -C $(PRINTF)
 
 bonus : printf $(OBJ_BNS)
-	@cc $(FLAGS) $(OBJ_BNS) ./$(PRINTF)/libftprintf.a -o checker
+	@cc $(FLAGS) $(OBJ_BNS) $(SRC_GET_NEXT_LINE) ./$(PRINTF)/libftprintf.a -o checker
 	@echo "Making checker executable..."
 
 $(NAME) : $(OBJ)
@@ -43,6 +44,7 @@ clean :
 	@echo "Cleaning Objects..."
 	@make -C $(PRINTF) fclean
 	@rm -rf $(OBJ)
+	@rm -rf $(OBJ_BNS)
 
 fclean : clean
 	@echo "Cleaning push_swap..."

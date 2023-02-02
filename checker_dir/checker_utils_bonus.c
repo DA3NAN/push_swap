@@ -6,7 +6,7 @@
 /*   By: aait-mal <aait-mal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 19:19:19 by aait-mal          #+#    #+#             */
-/*   Updated: 2023/02/01 19:28:56 by aait-mal         ###   ########.fr       */
+/*   Updated: 2023/02/02 12:36:35 by aait-mal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int	count_numbers(int ac, char **av)
 	i = 1;
 	while (i < ac)
 	{
+		if (av[i][0] == '\0')
+			return (0);
 		splited_numbers = ft_split(av[i], ' ');
 		j = 0;
 		while (splited_numbers[j])

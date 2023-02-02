@@ -39,6 +39,8 @@ int	count_numbers(int ac, char **av)
 	i = 1;
 	while (i < ac)
 	{
+		if (av[i][0] == '\0')
+			return (0);
 		splited_numbers = ft_split(av[i], ' ');
 		j = 0;
 		while (splited_numbers[j])
