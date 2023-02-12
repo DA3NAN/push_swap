@@ -6,7 +6,7 @@
 /*   By: aait-mal <aait-mal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 19:10:46 by aait-mal          #+#    #+#             */
-/*   Updated: 2023/02/02 16:32:31 by aait-mal         ###   ########.fr       */
+/*   Updated: 2023/02/12 16:03:01 by aait-mal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ typedef struct s_list
 int		check_valid_stack(int ac, char **av, t_list **stack);
 void	push_swap(t_list **stack_a, t_list **stack_b);
 int		ft_fill_stack(char *str, t_list **stack);
-void	display_stack(t_list *stack_a, t_list *stack_b);
 int		check_duplicate(t_list **stack);
 t_list	*ft_lstnew(int content);
 int		ft_lstsize(t_list *lst);

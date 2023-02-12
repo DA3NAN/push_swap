@@ -6,7 +6,7 @@
 /*   By: aait-mal <aait-mal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 16:45:27 by adnane            #+#    #+#             */
-/*   Updated: 2023/02/02 15:19:23 by aait-mal         ###   ########.fr       */
+/*   Updated: 2023/02/12 13:55:34 by aait-mal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,19 +55,11 @@ void	rotate_min(t_list **stack_a)
 	min_pos = get_position(*stack_a, min);
 	middle = ft_lstsize(*stack_a) / 2;
 	if (min_pos <= middle)
-	{
 		while ((*stack_a)->index != min)
-		{
 			ra(stack_a);
-		}
-	}
 	else
-	{
 		while ((*stack_a)->index != min)
-		{
 			rra(stack_a);
-		}
-	}
 }
 
 int	easy_cases(t_list **stack_a, t_list **stack_b)
@@ -76,25 +68,12 @@ int	easy_cases(t_list **stack_a, t_list **stack_b)
 
 	size = ft_lstsize(*stack_a);
 	if (size == 2)
-	{
-		if (!is_sorted(*stack_a))
-			sa(stack_a);
-		return (1);
-	}
+		return (sa(stack_a), 1);
 	else if (size == 3)
-	{
-		if (!is_sorted(*stack_a))
-		{
-			sort_three(stack_a);
-		}
-		return (1);
-	}
+		return (sort_three(stack_a), 1);
 	else if (size == 4)
-	{
-		sort_four(stack_a, stack_b);
-		return (1);
-	}
+		return (sort_four(stack_a, stack_b), 1);
 	else if (size == 5)
-		sort_five(stack_a, stack_b);
+		return (sort_five(stack_a, stack_b), 1);
 	return (0);
 }

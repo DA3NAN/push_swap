@@ -102,9 +102,7 @@ void	push_swap(t_list **stack_a, t_list **stack_b)
 
 	index_stack(stack_a);
 	if (is_sorted(*stack_a))
-	{
 		return ;
-	}
 	if (easy_cases(stack_a, stack_b))
 		return ;
 	chunk = divide_chunks(*stack_a);

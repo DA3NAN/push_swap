@@ -6,7 +6,7 @@
 /*   By: aait-mal <aait-mal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 13:49:26 by adnane            #+#    #+#             */
-/*   Updated: 2023/02/02 15:17:40 by aait-mal         ###   ########.fr       */
+/*   Updated: 2023/02/12 15:40:34 by aait-mal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,9 @@ void	sort_three(t_list **stack)
 
 void	sort_four(t_list **stack_a, t_list **stack_b)
 {
+	rotate_min(stack_a);
 	if (is_sorted(*stack_a))
 		return ;
-	rotate_min(stack_a);
 	pb(stack_a, stack_b);
 	sort_three(stack_a);
 	pa(stack_a, stack_b);
@@ -70,9 +70,9 @@ void	sort_four(t_list **stack_a, t_list **stack_b)
 
 void	sort_five(t_list **stack_a, t_list **stack_b)
 {
+	rotate_min(stack_a);
 	if (is_sorted(*stack_a))
 		return ;
-	rotate_min(stack_a);
 	pb(stack_a, stack_b);
 	sort_four(stack_a, stack_b);
 	pa(stack_a, stack_b);

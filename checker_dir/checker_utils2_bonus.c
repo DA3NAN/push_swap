@@ -6,7 +6,7 @@
 /*   By: aait-mal <aait-mal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 19:23:34 by aait-mal          #+#    #+#             */
-/*   Updated: 2023/02/02 12:45:44 by aait-mal         ###   ########.fr       */
+/*   Updated: 2023/02/12 16:00:43 by aait-mal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,29 @@ int	is_sorted(t_list *stack)
 		tmp = tmp->next;
 	}
 	return (1);
+}
+
+int	check_duplicate(t_list **stack)
+{
+	t_list	*tmp;
+	t_list	*tmp2;
+	int		number;
+
+	tmp = *stack;
+	while (tmp)
+	{
+		number = tmp->content;
+		tmp = tmp->next;
+		tmp2 = tmp;
+		while (tmp2)
+		{
+			if (tmp2->content == number)
+			{
+				ft_lstclear(stack);
+				return (1);
+			}
+			tmp2 = tmp2->next;
+		}
+	}
+	return (0);
 }
